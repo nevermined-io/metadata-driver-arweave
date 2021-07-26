@@ -68,3 +68,14 @@ class Plugin(AbstractPlugin):
     def text_query(self, full_text_model):
         self.logger.debug("arweave::text_query")
         raise MetadataDbError("text_query operation is not available with arweave")
+
+    def status(self, resource_id):
+        self.logger.debug("arweave::status::%s" % resource_id)
+
+        try:
+            transaction = arweave.Transaction(self.driver.wallet, id=resource_id)
+            return transaction.get_status()
+        except Exception as e:
+            raise MetadataDbError(
+                f"Error retrieving the status of {resource_id} from arweave: {str(e)}"
+            )
