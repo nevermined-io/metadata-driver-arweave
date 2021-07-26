@@ -74,7 +74,12 @@ class Plugin(AbstractPlugin):
 
         try:
             transaction = arweave.Transaction(self.driver.wallet, id=resource_id)
-            return transaction.get_status()
+            status = transaction.get_status()
+
+            if status != "PENDING":
+                return "ACCEPTED"
+
+            return status
         except Exception as e:
             raise MetadataDbError(
                 f"Error retrieving the status of {resource_id} from arweave: {str(e)}"
