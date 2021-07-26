@@ -9,7 +9,7 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 requirements = [
-    "nevermined-metadata-driver-interface",
+    "nevermined-metadata-driver-interface>=0.2.0",
     "arweave-python-client~=1.0.14",
 ]
 
@@ -47,6 +47,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/nevermined-io/metadata-driver-arweave",
-    version="0.1.0",
+    version="0.1.1",
     zip_safe=False,
 )
