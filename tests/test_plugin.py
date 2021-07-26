@@ -22,3 +22,10 @@ def test_read(arweave_plugin, ddo_example):
 
     retrieved_ddo = arweave_plugin.read(arweave_tx_id)
     assert retrieved_ddo == ddo_example
+
+
+def test_status(arweave_plugin, ddo_example):
+    arweave_tx_id = arweave_plugin.write(ddo_example)
+
+    status = arweave_plugin.status(arweave_tx_id)
+    assert status == "PENDING"
