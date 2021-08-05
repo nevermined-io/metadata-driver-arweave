@@ -25,6 +25,7 @@ class Plugin(AbstractPlugin):
 
         try:
             transaction = arweave.Transaction(self.driver.wallet, data=data)
+            transaction.add_tag("Content-Type", "application/json")
             transaction.sign()
             transaction.send()
         except Exception as e:
