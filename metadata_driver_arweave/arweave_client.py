@@ -16,10 +16,12 @@ def get_database_instance(config_file=None):
 
 class ArweaveInstance:
     def __init__(self, config=None):
-        host = get_value("db.hostname", "DB_HOSTNAME", "https://arweave.net", config)
-        port = get_value("db.port", "DB_PORT", None, config)
+        host = get_value(
+            "db.hostname", "ARWEAVE_HOSTNAME", "https://arweave.net", config
+        )
+        port = get_value("db.port", "ARWEAVE_PORT", None, config)
         wallet_file_path = get_value(
-            "db.wallet_file_path", "DB_WALLET_FILE_PATH", None, config
+            "db.wallet_file_path", "ARWEAVE_WALLET_FILE_PATH", None, config
         )
 
         if wallet_file_path is None:
