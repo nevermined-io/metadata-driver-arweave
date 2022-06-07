@@ -10,7 +10,7 @@ with open("README.md") as readme_file:
 
 requirements = [
     "nevermined-metadata-driver-interface>=0.2.0",
-    "arweave-python-client~=1.0.14",
+    "arweave-python-client>=1.0.18",
 ]
 
 setup_requirements = [
